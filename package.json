@@ -5,8 +5,14 @@
     "peerDependencies": {
         "hr.utils": "*"
     },
+    "devDependencies": {
+        "hr.mocha": "0.0.0"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/HappyRhino/hr.class.git"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/hr-mocha ./tests/index.js"
     }
 }
