@@ -13,12 +13,6 @@ var Class = function(options) {
 
 /**
  * Class.extend is used for herited from this class object
- * @example
- *      Class.extend(Class1, staticProps)
- *      Class.extend([Class1, Class2], staticProps)
- *
- * @method extend
- * @static
  */
 Class.extend = function(protoProps, staticProps) {
     var parent = this;
@@ -55,36 +49,21 @@ Class.extend = function(protoProps, staticProps) {
 
 /**
  * Base object representation: manage events and extensibility
- *
- * @class Class
- * @constructor
  */
 Class = Class.extend({
     /**
      * Default options for this.options in the class object
-     *
-     * @attribute defaults
-     * @type {object}
-     * @default {}
      */
     defaults: {},
 
     /**
      * Initialize this object, called at the construction
-     *
-     * @method initialize
      */
     initialize: function() {},
 
     /**
      * Bind an event to a `callback` function. Passing `"all"` will bind
      * the callback to all events fired.
-     *
-     * @method on
-     * @param {string} name event name (or names separated by space)
-     * @param {function} callback callback for this event
-     * @param {object} [context] content for the callback
-     * @chainable
      */
     on: function(name, callback, context) {
         if (!this.multipleEvents('on', name, [callback, context]) || !callback) return this;
@@ -101,12 +80,6 @@ Class = Class.extend({
     /**
      *  Bind an event to only be triggered a single time. After the first time
      *  the callback is invoked, it will be removed.
-     *
-     * @method once
-     * @param {string} name event name (or names separated by space)
-     * @param {function} callback callback for this event
-     * @param {object} [context] content for the callback
-     * @chainable
      */
     once: function(name, callback, context) {
         if (!this.multipleEvents('once', name, [callback, context]) || !callback) return this;
@@ -124,12 +97,6 @@ Class = Class.extend({
      *  callbacks with that function. If `callback` is null, removes all
      *  callbacks for the event. If `name` is null, removes all bound
      *  callbacks for all events.
-     *
-     * @method off
-     * @param {string} name event name (or names separated by space)
-     * @param {function} [callback] callback for this event
-     * @param {object} [context] content for the callback
-     * @chainable
      */
     off: function(name, callback, context) {
         if (!this._events || !this.multipleEvents('off', name, [callback, context])) return this;
@@ -181,12 +148,6 @@ Class = Class.extend({
     /**
      * Tell this object to stop listening to either specific events or
      * to every object it's currently listening to.
-     *
-     * @method stopListening
-     * @param {Class} [obj] object to stop listening to
-     * @param {string} [name] event to stop listening for
-     * @param {function} [callback] callback to stop listening for
-     * @chainable
      */
     stopListening: function(obj, name, callback) {
         var listeningTo = this._listeningTo;
@@ -234,10 +195,6 @@ Class = Class.extend({
      * passed the same arguments as `trigger` is, apart from the event name
      * (unless you're listening on `"all"`, which will cause your callback to
      * receive the true name of the event as the first argument).
-     *
-     * @method trigger
-     * @param {string} [name] event to trigger
-     * @chainable
      */
     trigger: function(name) {
         var args = Array.prototype.slice.call(arguments, 0);
