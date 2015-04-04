@@ -6,7 +6,7 @@
         "hr.utils": "*"
     },
     "devDependencies": {
-        "hr.mocha": "0.0.0"
+        "hr.mocha": "0.2.0"
     },
     "repository": {
         "type": "git",
