@@ -1,0 +1,12 @@
+{
+    "name": "hr.class",
+    "description": "Base class definition for HappyRhino",
+    "version": "0.0.0",
+    "peerDependencies": {
+        "hr.utils": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HappyRhino/hr.class.git"
+    }
+}
