@@ -60,5 +60,18 @@ obj.on("myevent", function(e) {
 obj1.listenTo(obj2, "myevent", function() {
     // this == obj1
 });
+```
 
+#### Inheritance
+
+Class can extend and inherit multiple classes.
+
+```js
+var ChildClass = MyClass.inherit([
+    AnotherClass,
+    AnotherClass2
+])
+.extend({
+
+});
 ```
