@@ -55,7 +55,7 @@ describe('Class', function() {
                 }
             });
 
-            var C3 = C1.inherit([C2]);
+            var C3 = C1.inherit(C2);
             var c = new C3();
 
             expect(c.f0()).to.equal(0);

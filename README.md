@@ -67,10 +67,10 @@ obj1.listenTo(obj2, "myevent", function() {
 Class can extend and inherit multiple classes.
 
 ```js
-var ChildClass = MyClass.inherit([
+var ChildClass = MyClass.inherit(
     AnotherClass,
     AnotherClass2
-])
+)
 .extend({
 
 });

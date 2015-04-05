@@ -50,9 +50,9 @@ Class.extend = function(protoProps, staticProps) {
 /**
  * Class.inherit is used to inherit from multiple classes
  */
-Class.inherit = function(cls) {
-    return _.reduce(cls, function(parent, cl) {
-        return parent.extend(cl.prototype);
+Class.inherit = function() {
+    return _.reduce(_.toArray(arguments), function(parent, cls) {
+        return parent.extend(cls.prototype);
     }, this);
 };
 
