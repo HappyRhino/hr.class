@@ -1,7 +1,7 @@
 {
     "name": "hr.class",
     "description": "Base class and events manager for HappyRhino",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "peerDependencies": {
         "hr.utils": "*"
     },
