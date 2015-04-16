@@ -1,12 +1,9 @@
 {
     "name": "hr.class",
     "description": "Base class and events manager for HappyRhino",
-    "version": "0.3.0",
-    "peerDependencies": {
-        "hr.utils": "*"
-    },
+    "version": "0.4.0",
     "devDependencies": {
-        "hr.mocha": "0.2.0"
+        "hr.mocha": "^0.2.0"
     },
     "repository": {
         "type": "git",
@@ -14,5 +11,8 @@
     },
     "scripts": {
         "test": "./node_modules/.bin/hr-mocha ./tests/index.js"
+    },
+    "dependencies": {
+        "hr.utils": "*"
     }
 }
