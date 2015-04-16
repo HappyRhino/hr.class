@@ -52,7 +52,7 @@ Class.extend = function(protoProps, staticProps) {
  */
 Class.inherit = function() {
     return _.reduce(_.toArray(arguments), function(parent, cls) {
-        return parent.extend(cls.prototype);
+        return parent.extend(cls.__proto__);
     }, this);
 };
 
