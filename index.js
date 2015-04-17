@@ -60,6 +60,7 @@ Class.mixin = function() {
 
     return child;
 };
+Class.inherit = Class.mixin;
 
 /**
  * Define a mixin
