@@ -55,7 +55,10 @@ Class.mixin = function() {
         child = this;
 
     _.each(args, function (mixin) {
-        child = child.extend(mixin.__protoProps__, mixin.__staticProps__);
+        var C = child;
+        var props = _.isFunction(mixin.__protoProps__)? mixin.__protoProps__(C.prototype) : mixin.__protoProps__;
+        var sprops = _.isFunction(mixin.__staticProps__)? mixin.__staticProps__(C) : mixin.__staticProps__;
+        child = child.extend(props, sprops);
     });
 
     return child;

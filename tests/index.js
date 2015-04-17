@@ -95,6 +95,27 @@ describe('Class', function() {
             expect(C2.f0()).to.equal(0);
             expect(C2.f1()).to.equal(2);
         });
+
+        it('should correctly handle inheritance', function() {
+            var C1 = Class.extend({
+                f1: function() {
+                    return 1;
+                }
+            });
+            var M1 = Class.Mixin(function(C) {
+                return {
+                    f1: function() {
+                        return C.f1.call(this) + 2;
+                    }
+                }
+            });
+
+            var C2 = C1.mixin(M1);
+
+            var c = new C2();
+
+            expect(c.f1()).to.equal(3);
+        });
     });
 });
 
