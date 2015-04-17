@@ -91,6 +91,7 @@ describe('Class', function() {
 
             var C2 = C1.mixin(M1);
 
+            expect(M1.f1()).to.equal(2);
             expect(C2.f0()).to.equal(0);
             expect(C2.f1()).to.equal(2);
         });

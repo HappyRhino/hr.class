@@ -55,7 +55,7 @@ Class.mixin = function() {
         child = this;
 
     _.each(args, function (mixin) {
-        child = child.extend(mixin.protoProps, mixin.staticProps);
+        child = child.extend(mixin.__protoProps__, mixin.__staticProps__);
     });
 
     return child;
@@ -65,11 +65,11 @@ Class.mixin = function() {
  * Define a mixin
  */
 Class.Mixin = function(protoProps, staticProps) {
-    return {
-        Constructor: this,
-        protoProps: protoProps,
-        staticProps: staticProps
-    };
+    return _.extend({
+        __Constructor__: this,
+        __protoProps__: protoProps,
+        __staticProps__: staticProps
+    }, staticProps);
 };
 
 /**
