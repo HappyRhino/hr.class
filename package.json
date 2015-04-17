@@ -1,7 +1,7 @@
 {
     "name": "hr.class",
     "description": "Base class and events manager for HappyRhino",
-    "version": "0.4.1",
+    "version": "1.0.0",
     "devDependencies": {
         "hr.mocha": "^0.2.0"
     },
