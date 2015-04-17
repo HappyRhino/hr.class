@@ -73,6 +73,27 @@ describe('Class', function() {
             expect(c).to.be.an.instanceof(C3);
             expect(c).to.be.an.instanceof(C1);
         });
+
+        it('should correctly inherit static properties', function() {
+            var C1 = Class.extend({}, {
+                f1: function() {
+                    return 1;
+                },
+                f0: function() {
+                    return 0;
+                }
+            });
+            var M1 = Class.Mixin({}, {
+                f1: function() {
+                    return 2;
+                }
+            });
+
+            var C2 = C1.mixin(M1);
+
+            expect(C2.f0()).to.equal(0);
+            expect(C2.f1()).to.equal(2);
+        });
     });
 });
 

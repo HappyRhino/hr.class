@@ -54,8 +54,8 @@ Class.mixin = function() {
     var args  = _.toArray(arguments),
         child = this;
 
-    _.each(args, function (proto) {
-        child = child.extend(proto);
+    _.each(args, function (mixin) {
+        child = child.extend(mixin.protoProps, mixin.staticProps);
     });
 
     return child;
@@ -64,8 +64,12 @@ Class.mixin = function() {
 /**
  * Define a mixin
  */
-Class.Mixin = function(M) {
-    return M;
+Class.Mixin = function(protoProps, staticProps) {
+    return {
+        Constructor: this,
+        protoProps: protoProps,
+        staticProps: staticProps
+    };
 };
 
 /**
