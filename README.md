@@ -62,14 +62,20 @@ obj1.listenTo(obj2, "myevent", function() {
 });
 ```
 
-#### Inheritance
+#### Mixins
 
-Class can extend and inherit multiple classes.
+Class can be extended using mixins.
 
 ```js
-var ChildClass = MyClass.inherit(
-    AnotherClass,
-    AnotherClass2
+var MyMixin = Class.Mixin({
+    myMethod: function() {
+        ...
+    }
+});
+
+var ChildClass = MyClass.mixim(
+    MyMixin,
+    AnotherMixin
 )
 .extend({
 

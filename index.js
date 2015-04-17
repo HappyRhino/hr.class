@@ -48,12 +48,24 @@ Class.extend = function(protoProps, staticProps) {
 };
 
 /**
- * Class.inherit is used to inherit from multiple classes
+ * Class.mixin is used to inherit from multiple mixins
  */
-Class.inherit = function() {
-    return _.reduce(_.toArray(arguments), function(parent, cls) {
-        return parent.extend(cls.__proto__);
-    }, this);
+Class.mixin = function() {
+    var args  = _.toArray(arguments),
+        child = this;
+
+    _.each(args, function (proto) {
+        child = child.extend(proto);
+    });
+
+    return child;
+};
+
+/**
+ * Define a mixin
+ */
+Class.Mixin = function(M) {
+    return M;
 };
 
 /**

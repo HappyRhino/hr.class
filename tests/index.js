@@ -33,8 +33,8 @@ describe('Class', function() {
         });
     });
 
-    describe('Inheritance', function() {
-        it('should corrtly inherit multiple classes', function() {
+    describe('Mixins', function() {
+        it('should correctly inherit from multiple mixins', function() {
             var C1 = Class.extend({
                 f0: function() {
                     return 0;
@@ -43,10 +43,12 @@ describe('Class', function() {
                     return 1;
                 }
             });
-            var C2 = Class.extend({
+            var M1 = Class.Mixin({
                 f1: function() {
                     return 2;
-                },
+                }
+            });
+            var M2 = Class.Mixin({
                 f2: function() {
                     return 2;
                 },
@@ -55,13 +57,21 @@ describe('Class', function() {
                 }
             });
 
-            var C3 = C1.inherit(C2);
+            var C3 = C1.mixin(M1, M2).extend({
+                f3: function() {
+                    return C3.__super__.f3.apply(this, arguments) + this.f2();
+                }
+            });
+
+
             var c = new C3();
 
             expect(c.f0()).to.equal(0);
             expect(c.f1()).to.equal(2);
             expect(c.f2()).to.equal(2);
-            expect(c.f3()).to.equal(3);
+            expect(c.f3()).to.equal(5);
+            expect(c).to.be.an.instanceof(C3);
+            expect(c).to.be.an.instanceof(C1);
         });
     });
 });
