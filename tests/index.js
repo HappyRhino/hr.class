@@ -33,6 +33,20 @@ describe('Class', function() {
         });
     });
 
+    describe('Inheritance', function() {
+        it('should work with instanceOf', function() {
+            var C1 = Class.extend({});
+            var C2 = C1.extend({});
+            var C3 = C2.extend({});
+
+            var c = new C3();
+            expect(c).to.be.an.instanceof(C3);
+            expect(c).to.be.an.instanceof(C2);
+            expect(c).to.be.an.instanceof(C1);
+            expect(c).to.be.an.instanceof(Class);
+        });
+    });
+
     describe('Mixins', function() {
         it('should correctly inherit from multiple mixins', function() {
             var C1 = Class.extend({
