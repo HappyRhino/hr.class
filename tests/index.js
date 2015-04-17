@@ -116,6 +116,34 @@ describe('Class', function() {
 
             expect(c.f1()).to.equal(3);
         });
+
+        it('should correctly handle inheritance (2)', function() {
+            var C1 = Class.extend({
+                f1: function() {
+                    return "Hello";
+                }
+            });
+            var M1 = Class.Mixin(function(C) {
+                return {
+                    f1: function() {
+                        return C.f1.call(this) + " ";
+                    }
+                }
+            });
+            var M2 = Class.Mixin(function(C) {
+                return {
+                    f1: function() {
+                        return C.f1.call(this) + "World";
+                    }
+                }
+            });
+
+            var C2 = C1.mixin(M1, M2);
+
+            var c = new C2();
+
+            expect(c.f1()).to.equal("Hello World");
+        });
     });
 });
 
