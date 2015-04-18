@@ -58,6 +58,7 @@ Class.mixin = function() {
         var C = child;
         var props = _.isFunction(mixin.__protoProps__)? mixin.__protoProps__(C.prototype) : mixin.__protoProps__;
         var sprops = _.isFunction(mixin.__staticProps__)? mixin.__staticProps__(C) : mixin.__staticProps__;
+
         child = child.extend(props, sprops);
     });
 
@@ -80,9 +81,8 @@ Class.Mixin = function(protoProps, staticProps) {
         __staticProps__: staticProps
     }, staticProps, {
         extend: function() {
-            return Constructor
-                .mixin(M)
-                .extend.apply(Constructor, arguments);
+            var C = Constructor.mixin(M);
+            return C.extend.apply(C, arguments);
         }
     });
 
