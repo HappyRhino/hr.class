@@ -13,6 +13,6 @@
         "test": "./node_modules/.bin/hr-mocha ./tests/index.js"
     },
     "dependencies": {
-        "hr.utils": "*"
+        "lodash": "*"
     }
 }

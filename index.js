@@ -1,4 +1,4 @@
-var _ = require("hr.utils");
+var _ = require("lodash");
 
 // Regular expression used to split event strings.
 var eventSplitter = /\s+/;

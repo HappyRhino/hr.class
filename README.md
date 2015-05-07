@@ -1,7 +1,7 @@
 hr.class [![Build Status](https://travis-ci.org/HappyRhino/hr.class.png?branch=master)](https://travis-ci.org/HappyRhino/hr.class)
 =============================
 
-> Base class and events manager for HappyRhino
+> Base class and events manager
 
 ## Installation
 
